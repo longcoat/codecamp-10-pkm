@@ -1,7 +1,19 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const client = new ApolloClient({
+    uri: "http://backend10.codebootcamp.co.kr/graphql",
+    cache: new InMemoryCache(),
+  });
+
+  return (
+    <div>
+      <ApolloProvider client={client}>
+        <Component />
+      </ApolloProvider>
+    </div>
+  );
 }
 
-export default MyApp
+export default MyApp;
