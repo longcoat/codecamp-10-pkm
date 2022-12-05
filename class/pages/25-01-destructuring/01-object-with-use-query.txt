@@ -1,0 +1,32 @@
+function useQuery(qqq) {
+
+
+    // qqq API 요청하기
+
+    
+return{
+    data: {fetchBoard: {writer:"보노보노"}},
+    refetch: () => {
+        console.log("리페치가 실행됩니다!!")
+    }
+  }
+}
+
+
+undefined
+const { data, refetch } = useQuery("FETCH_BOARD")
+undefined
+data.fetchBoard.writer
+'보노보노'
+refetch
+() => {
+        console.log("리페치가 실행됩니다!!")
+    }
+const aaa = useQuery("FETCH_BOARD")
+undefined
+aaa.data.fetchBoard.writer
+'보노보노'
+aaa.refetch
+() => {
+        console.log("리페치가 실행됩니다!!")
+    }

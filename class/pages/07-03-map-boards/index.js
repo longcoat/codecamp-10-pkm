@@ -25,14 +25,14 @@ export default function StaticRoutedPage() {
   return (
     <div>
       {data?.fetchBoards.map((el) => (
-        <div>
+        <>
           <span style={{ margin: "10px" }}>
             <input type="checkbox" />
           </span>
           <span style={{ margin: "10px" }}>{el.number}</span>
           <span style={{ margin: "10px" }}>{el.title}</span>
           <span style={{ margin: "10px" }}>{el.contents}</span>
-        </div>
+        </>
       ))}
     </div>
   );

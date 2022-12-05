@@ -1,3 +1,5 @@
+
+import { useRouter } from "next/router";
 import { useState } from "react";
 import {useMutation} from "@apollo/client" 
 import {CREATE_BOARD} from "./BoardWrite.queries"
