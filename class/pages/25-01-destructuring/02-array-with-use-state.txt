@@ -1,0 +1,19 @@
+function useState(qqq){
+
+    let myState = qqq
+
+    const mySetState = (value) => {
+        console.log("state를 변경합니다")
+    }
+
+    return [myState, mySetState]
+    
+}
+undefined
+const [count, setCount] = useState(0)
+undefined
+count
+0
+setCount(3)
+VM2877:7 state를 3로 변경합니다
+undefined
