@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Promise 연습!!!</title>
+    <script>
+      const onClickThen = () => {
+        new Promise((resolve, reject) => {
+          // API 요청을 한다면?? 둘중에 하나 함수 실행시켜야 끝남
+          setTimeout(() => {
+            try {
+              const response = "너부리"; // 2초가 걸려서 백엔드에서 "너부리" 데이터 받아옴
+              성공했을때함수(response); // 성공하면 이거 실행
+            } catch (error) {
+              실패했을때함수("실패했습니다!!"); // 실패하면 이거 실행
+            }
+          }, 2000);
+        })
+          .then((res) => {
+            console.log(res); // 너부리
+          })
+          .catch((error) => {
+            console.log(err); // 실패했습니다
+          });
+
+        function axios() {
+          return new Promise((성공시, 실패시) => {});
+        }
+      };
+
+      const onClickAwait = async () => {
+        const result = await new Promise((resolve, reject) => {
+          // API 요청을 한다면?? 둘중에 하나 함수 실행시켜야 끝남
+          setTimeout(() => {
+            try {
+              const response = "너부리"; // 2초가 걸려서 백엔드에서 "너부리" 데이터 받아옴
+              성공했을때함수(response); // 성공하면 이거 실행
+            } catch (error) {
+              실패했을때함수("실패했습니다!!"); // 실패하면 이거 실행
+            }
+          }, 2000);
+        });
+        console.log(result); // 너부리가 나옴
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickThen">Promise 실행하기(.then)</button>
+    <button onclick="onClickAwait">Promise 실행하기(await)</button>
+  </body>
+</html>
