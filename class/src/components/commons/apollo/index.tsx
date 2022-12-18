@@ -2,19 +2,12 @@ import {
   ApolloClient,
   ApolloLink,
   ApolloProvider,
-<<<<<<< Updated upstream
-=======
   fromPromise,
   gql,
->>>>>>> Stashed changes
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import { useEffect } from "react";
-<<<<<<< Updated upstream
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/stores";
-=======
 import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import {
   accessTokenState,
@@ -22,7 +15,6 @@ import {
 } from "../../../commons/stores";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
->>>>>>> Stashed changes
 
 interface IApolloSettingProps {
   children: JSX.Element;
@@ -32,12 +24,8 @@ const GLOBAL_STATE = new InMemoryCache();
 
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-<<<<<<< Updated upstream
-
-=======
   const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
   // 로딩 api통합
->>>>>>> Stashed changes
   // 1.프리렌더링 예제 - process.browser 방법
 
   // if (process.browser) {
@@ -59,22 +47,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 
   // 3.프리렌더링 무시 - useEffect 방법
   useEffect(() => {
-<<<<<<< Updated upstream
-    // 브라우저
-    const result = localStorage.getItem("accessToken") ?? "";
-    setAccessToken(result);
-  }, []);
-
-  const uploadLink = createUploadLink({
-    uri: "http://backend10.codebootcamp.co.kr/graphql",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-
-  const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink]),
-=======
     // 1. 기존방식(refreshToken 이전)
     // const result = localStorage.getItem("accessToken") ?? "";
 
@@ -121,7 +93,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 
   const client = new ApolloClient({
     link: ApolloLink.from([errorLink, uploadLink]),
->>>>>>> Stashed changes
     cache: GLOBAL_STATE, // 컴퓨터의 메모리에다가 백엔드에서 받아온 데이터 모두 임시로 저장해놓기
   });
 
