@@ -39,6 +39,7 @@ export const QButton = styled.button`
   font-size: 16px;
   color: white;
   background-color: black;
+  cursor: pointer;
 `;
 
 export const CommentList = styled.div``;
